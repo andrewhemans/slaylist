@@ -5,8 +5,8 @@ import { Work_Sans } from "next/font/google";
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "Mantine Next.js template",
-  description: "I am using Mantine with Next.js!",
+  title: "Slaylist",
+  description: "Create your own daily Slaylist artwork",
 };
 
 const worksans = Work_Sans({
