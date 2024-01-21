@@ -7,10 +7,12 @@ import {
   Text,
   TextInput,
   Button,
+  ActionIcon,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
 import DownloadAsImage from "./DownloadAsImage";
 import data from "./data.js";
+import FeatherIcon from "feather-icons-react";
 
 type TimeOfDay =
   | "early-morning"
@@ -58,11 +60,13 @@ const generateSentence = () => {
 };
 
 export default function ImageInput() {
-  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>(determineTimeOfDay());
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
   const [value, setValue] = useState(""); // Initialize with an empty string
 
   useEffect(() => {
-    // Generate the initial sentence only on client-side
+    // Determine the time of day and generate the initial sentence on client-side
+    const currentTimeOfDay = determineTimeOfDay();
+    setTimeOfDay(currentTimeOfDay);
     setValue(generateSentence());
 
     const interval = setInterval(() => {
@@ -72,12 +76,16 @@ export default function ImageInput() {
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
-  // Update value when timeOfDay changes
   useEffect(() => {
-    setValue(generateSentence());
+    // Update the sentence when timeOfDay changes
+    if (timeOfDay) {
+      setValue(generateSentence());
+    }
   }, [timeOfDay]);
 
-  const imageUrl = getImageForTimeOfDay(timeOfDay);
+  const imageUrl = timeOfDay
+    ? getImageForTimeOfDay(timeOfDay)
+    : "/images/default.png"; // Provide a default image
 
   // Update the TextInput value
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,11 +133,29 @@ export default function ImageInput() {
             </BackgroundImage>
           </DownloadAsImage>
         </Box>
-        <Container>
-          <TextInput size="md" value={value} onChange={handleChange} />
-          <Button color="gray" variant="light" onClick={regenerateSentence}>
-            Regenerate Sentence
-          </Button>
+        <Container
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <TextInput
+            size="md"
+            value={value}
+            onChange={handleChange}
+            style={{ flexGrow: "1" }}
+          />
+          <ActionIcon
+            color="gray"
+            radius="lg"
+            size="lg"
+            variant="light"
+            onClick={regenerateSentence}
+          >
+            <FeatherIcon icon="refresh-cw" size="18" />
+          </ActionIcon>
         </Container>
       </Container>
     </div>
