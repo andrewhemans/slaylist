@@ -96,7 +96,8 @@ export default function ImageInput() {
           <DownloadAsImage>
             <BackgroundImage
               src={imageUrl}
-              p={"lg"}
+              px={"lg"}
+              pb={"xs"}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -117,6 +118,9 @@ export default function ImageInput() {
                 style={{ wordBreak: "break-word", textTransform: "lowercase" }}
               >
                 {value}
+              </Text>
+              <Text c="rgba(255, 255, 255, 0.5)" size="sm">
+                slaylist.dev
               </Text>
             </BackgroundImage>
           </DownloadAsImage>
