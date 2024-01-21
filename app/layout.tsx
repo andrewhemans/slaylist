@@ -34,7 +34,10 @@ export default function RootLayout({ children }: { children: any }) {
           name="twitter:description"
           content="a custom daylist image generator"
         />
-        <meta name="twitter:image" content="/images/preview.png" />
+        <meta
+          name="twitter:image"
+          content="https://slaylist.dev/images/preview.png"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="slaylist" />
         <meta
@@ -43,7 +46,10 @@ export default function RootLayout({ children }: { children: any }) {
         />
         <meta property="og:site_name" content="slaylist" />
         <meta property="og:url" content="https://slaylist.dev" />
-        <meta property="og:image" content="/images/preview.png" />
+        <meta
+          property="og:image"
+          content="https://slaylist.dev/images/preview.png"
+        />
       </head>
       <body>
         <MantineProvider defaultColorScheme="dark" theme={theme}>
