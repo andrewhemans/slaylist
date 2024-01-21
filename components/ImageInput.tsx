@@ -59,9 +59,12 @@ const generateSentence = () => {
 
 export default function ImageInput() {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>(determineTimeOfDay());
-  const [value, setValue] = useState(generateSentence()); // Initialize with the generated sentence
+  const [value, setValue] = useState(""); // Initialize with an empty string
 
   useEffect(() => {
+    // Generate the initial sentence only on client-side
+    setValue(generateSentence());
+
     const interval = setInterval(() => {
       setTimeOfDay(determineTimeOfDay());
     }, 60 * 60 * 1000); // Update every hour
