@@ -1,6 +1,6 @@
 import React, { useRef, ReactNode } from "react";
 import html2canvas from "html2canvas";
-import { Button } from "@mantine/core";
+import { Button, Container } from "@mantine/core";
 
 type DownloadAsImageProps = {
   children: ReactNode;
@@ -29,15 +29,17 @@ const DownloadAsImage: React.FC<DownloadAsImageProps> = ({ children }) => {
   return (
     <div>
       <div ref={contentRef}>{children}</div>
-      <Button
-        variant="light"
-        color="gray"
-        onClick={handleDownloadImage}
-        mt={"lg"}
-        w={"100%"}
-      >
-        Download as PNG
-      </Button>
+      <Container>
+        <Button
+          variant="light"
+          color="gray"
+          onClick={handleDownloadImage}
+          mt={"lg"}
+          w={"100%"}
+        >
+          Download as PNG
+        </Button>
+      </Container>
     </div>
   );
 };
