@@ -32,7 +32,7 @@ const determineTimeOfDay = (): TimeOfDay => {
 };
 
 const imageMap: Record<TimeOfDay, string> = {
-  "early-morning": "/images/late-night.png",
+  "early-morning": "/images/sunrise.png",
   "mid-morning": "/images/mid-morning.png",
   afternoon: "/images/afternoon.png",
   evening: "/images/evening.png",
