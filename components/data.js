@@ -355,6 +355,34 @@ const data = {
       description:
         "To do something with full commitment and without hesitation.",
     },
+    {
+      term: "bussy",
+      description: "",
+    },
+    {
+      term: "gock",
+      description: "",
+    },
+    {
+      term: "frotting",
+      description: "",
+    },
+    {
+      term: "delulu",
+      description: "delusional",
+    },
+    {
+      term: "silly-goose",
+      description: "",
+    },
+    {
+      term: "designer-pussy",
+      description: "",
+    },
+    {
+      term: "bussy",
+      description: "",
+    },
   ],
   suffixes: [
     { suffix: "-wave", examples: ["New-wave", "Synthwave", "Darkwave"] },
